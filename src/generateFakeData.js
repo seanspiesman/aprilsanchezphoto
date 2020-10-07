@@ -8,4 +8,6 @@ function seedFakeData(n) {
   return imageObj;
 }
 
-module.exports = { seedFakeData };
+let imageData = Object.values(seedFakeData(100));
+
+module.exports = { imageData };
