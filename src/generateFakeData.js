@@ -14,5 +14,3 @@ function seedFakeData(n) {
 }
 
 console.log(seedFakeData(10));
-
-// let imageData = Object.values(seedFakeData(100));
