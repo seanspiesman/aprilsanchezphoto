@@ -8,6 +8,4 @@ function seedFakeData(n) {
   return imageObj;
 }
 
-console.log(seedFakeData(10));
-
 module.exports = { seedFakeData };
