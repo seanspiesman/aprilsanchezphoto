@@ -1,7 +1,8 @@
 import React from "react";
-import { imageData } from "../src/generateFakeData";
+import data from "../src/data.json";
 
 const portraits = () => {
+  let imageData = Object.values(data);
   return (
     <div>
       {imageData.map((image, key) => (
