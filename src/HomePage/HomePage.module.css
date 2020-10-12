@@ -1,0 +1,27 @@
+.backgroundimg {
+  position: absolute;
+  color: gray;
+  min-height: 100%;
+  min-width: 100%;
+  left: 0;
+  /* left: 50%; 
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%); */
+  z-index: -1000;
+}
+
+.title {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  color: black;
+}
+
+.link {
+  color: black;
+}
+.link:hover {
+  color: black;
+}
