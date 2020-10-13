@@ -7,9 +7,12 @@ const content = ["Portraits", "Landscape", "Blog", "About", "Contact"];
 const Sidebar = () => {
   return (
     <>
-      <Col className="col-md-3">
+      <Col className="col-sm-2">
         <div className={styles.sidebar}>
-          <h3>April Judith</h3>
+          <h3>
+            April
+            <br /> Judith
+          </h3>
           <br />
           <div>
             {content.map((item, index) => (

@@ -1,163 +1,139 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Col, Row } from "react-bootstrap";
 import Sidebar from "../Sidebar/Sidebar";
 import styles from "./Landscape.module.css";
 
 const images = [
-  {
-    src:
-      "https://cdn.pixabay.com/photo/2017/01/14/12/59/iceland-1979445_960_720.jpg",
-  },
-  {
-    src:
-      "https://cdn.pixabay.com/photo/2019/06/12/15/07/cat-4269479_960_720.jpg",
-  },
-  {
-    src:
-      "https://cdn.pixabay.com/photo/2016/12/04/21/58/rabbit-1882699_960_720.jpg",
-  },
-  {
-    src:
-      "https://cdn.pixabay.com/photo/2014/07/08/12/36/bird-386725_960_720.jpg",
-  },
-  {
-    src:
-      "https://cdn.pixabay.com/photo/2015/10/12/15/46/fallow-deer-984573_960_720.jpg",
-  },
-  {
-    src:
-      "https://cdn.pixabay.com/photo/2014/10/01/10/44/hedgehog-468228_960_720.jpg",
-  },
-  {
-    src:
-      "https://cdn.pixabay.com/photo/2013/09/22/15/29/prairie-dog-184974_960_720.jpg",
-  },
-  {
-    src:
-      "https://cdn.pixabay.com/photo/2018/03/31/06/31/dog-3277416_960_720.jpg",
-  },
-  {
-    src:
-      "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_960_720.jpg",
-  },
-  {
-    src:
-      "https://cdn.pixabay.com/photo/2019/03/09/17/30/horse-4044547_960_720.jpg",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1511576661531-b34d7da5d0bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1434725039720-aaad6dd32dfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1433838552652-f9a46b332c40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/34/BA1yLjNnQCI1yisIZGEi_2013-07-16_1922_IMG_9873.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1469827160215-9d29e96e72f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1524260855046-f743b3cdad07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1419064642531-e575728395f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1537249011554-eb008faf38c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1518098268026-4e89f1a2cd8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1418985227304-f32df7d84e39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1476610182048-b716b8518aae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1433477155337-9aea4e790195?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1502786129293-79981df4e689?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
-  {
-    src:
-      "https://images.unsplash.com/photo-1413752362258-7af2a667b590?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
-  },
+  "https://cdn.pixabay.com/photo/2017/01/14/12/59/iceland-1979445_960_720.jpg",
+
+  "https://cdn.pixabay.com/photo/2019/06/12/15/07/cat-4269479_960_720.jpg",
+
+  "https://cdn.pixabay.com/photo/2016/12/04/21/58/rabbit-1882699_960_720.jpg",
+
+  "https://cdn.pixabay.com/photo/2015/10/12/15/46/fallow-deer-984573_960_720.jpg",
+
+  "https://cdn.pixabay.com/photo/2014/10/01/10/44/hedgehog-468228_960_720.jpg",
+
+  "https://cdn.pixabay.com/photo/2013/09/22/15/29/prairie-dog-184974_960_720.jpg",
+
+  "https://cdn.pixabay.com/photo/2018/03/31/06/31/dog-3277416_960_720.jpg",
+
+  "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_960_720.jpg",
+
+  "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1511576661531-b34d7da5d0bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1434725039720-aaad6dd32dfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1433838552652-f9a46b332c40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/34/BA1yLjNnQCI1yisIZGEi_2013-07-16_1922_IMG_9873.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1469827160215-9d29e96e72f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1524260855046-f743b3cdad07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1419064642531-e575728395f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1537249011554-eb008faf38c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1518098268026-4e89f1a2cd8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1418985227304-f32df7d84e39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1476610182048-b716b8518aae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1433477155337-9aea4e790195?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1502786129293-79981df4e689?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
+
+  "https://images.unsplash.com/photo-1413752362258-7af2a667b590?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
 ];
 
 const LandscapePage = () => {
-  //   React.useEffect(() => {
-  //     console.log(window.location.pathname);
-  //   });
+  const columnOne = [];
+  const columnTwo = [];
+  const columnThree = [];
+
+  for (let i = 0; i < images.length; i++) {
+    if (i === 0) columnOne.push(images[i]);
+    else if ((i + 1) % 3 === 0) columnThree.push(images[i]);
+    else if ((i + 1) % 2 === 0) columnTwo.push(images[i]);
+    else {
+      columnOne.push(images[i]);
+    }
+  }
+
   const onImageClick = (image) => {
-    console.log(image);
+    console.log(images.indexOf(image));
   };
 
   return (
     <div style={{ marginTop: "80px" }}>
       <Row>
         <Sidebar />
-        <Col className="col-md-9">
+        <Col className="col-md-9 .gallery">
           <Row>
-            {images.map((item, index) => {
-              // console.log(images.length);
-              return (
-                // <Col className="col-md-3">
-                <img
-                  onClick={() => onImageClick(item.src)}
-                  key={index}
-                  className={styles.images}
-                  alt="image"
-                  src={item.src}
-                />
-                // </Col>
-              );
-            })}
+            <Col
+              data-toggle="modal"
+              data-target="#modal"
+              className="col-4"
+              style={{ padding: "2px" }}
+            >
+              {columnOne.map((image, index) => {
+                return (
+                  <Fragment key={index}>
+                    <a href="lightbox" data-slide-to={images.indexOf(image)} />
+                    <img
+                      onClick={() => onImageClick(image)}
+                      key={index}
+                      className={styles.images}
+                      alt="image"
+                      src={image}
+                    />
+                  </Fragment>
+                );
+              })}
+            </Col>
+            <Col className="col-4" style={{ padding: "2px" }}>
+              {columnTwo.map((image, index) => {
+                return (
+                  <img
+                    onClick={() => onImageClick(image)}
+                    key={index}
+                    className={styles.images}
+                    alt="image"
+                    src={image}
+                  />
+                );
+              })}
+            </Col>
+            <Col className="col-4" style={{ padding: "2px" }}>
+              {columnThree.map((image, index) => {
+                return (
+                  <img
+                    onClick={() => onImageClick(image)}
+                    key={index}
+                    className={styles.images}
+                    alt="image"
+                    src={image}
+                  />
+                );
+              })}
+            </Col>
           </Row>
         </Col>
       </Row>
