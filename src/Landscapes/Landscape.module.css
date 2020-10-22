@@ -157,7 +157,7 @@
   z-index: 100 !important;
 }
 
-.modalImage {
+.modalImageForward {
   margin: 0;
   /* opacity: 0.2; */
   position: absolute;
@@ -165,15 +165,15 @@
   max-height: 90vw;
   transform: translate(-50%, -50%);
 
-  animation: imageFadeIn 1.7s;
-  -moz-animation: imageFadeIn 1.7s; /* Firefox */
-  -webkit-animation: imageFadeIn 1.7s; /* Safari and Chrome */
-  -o-animation: imageFadeIn 1.7s; /* Opera */
+  animation: imageFadeInForward 1.3s;
+  -moz-animation: imageFadeInForward 1.3s; /* Firefox */
+  -webkit-animation: imageFadeInForward 1.3s; /* Safari and Chrome */
+  -o-animation: imageFadeInForward 1.3s; /* Opera */
   /* animation-fill-mode: forwards; */
   overflow-x: hidden !important;
 }
 
-.prevModalImage {
+.prevModalImageForward {
   opacity: 1;
   margin: 0;
   position: absolute;
@@ -181,18 +181,18 @@
   max-height: 90vw;
   transform: translate(-50%, -50%);
 
-  animation: imageFadeOut 1.7s;
-  animation-name: imageFadeOut;
-  -moz-animation: imageFadeOut 1.7s; /* Firefox */
-  -webkit-animation: imageFadeOut 1.7s; /* Safari and Chrome */
-  -o-animation: imageFadeOut 1.7s; /* Opera */
+  animation: imageFadeOutForward 1.3s;
+  animation-name: imageFadeOutForward;
+  -moz-animation: imageFadeOutForward 1.3s; /* Firefox */
+  -webkit-animation: imageFadeOutForward 1.3s; /* Safari and Chrome */
+  -o-animation: imageFadeOutForward 1.3s; /* Opera */
   animation-fill-mode: forwards;
 }
 
-@keyframes imageFadeIn {
+@keyframes imageFadeInForward {
   from {
     transform: translate(100%, -50%);
-    opacity: 0;
+    opacity: 1;
   }
   to {
     transform: translate(-50%, -50%);
@@ -200,7 +200,7 @@
   }
 }
 
-@keyframes imageFadeOut {
+@keyframes imageFadeOutForward {
   from {
     opacity: 1;
     transform: translate(-50%, -50%);
@@ -208,6 +208,60 @@
   to {
     opacity: 0;
     transform: translate(-200%, -50%);
+  }
+}
+
+.modalImageBackward {
+  margin: 0;
+  /* opacity: 0.2; */
+  position: absolute;
+  max-width: 90vw;
+  max-height: 90vw;
+  transform: translate(-50%, -50%);
+
+  animation: imageFadeInBackward 1.3s;
+  -moz-animation: imageFadeInBackward 1.3s; /* Firefox */
+  -webkit-animation: imageFadeInBackward 1.3s; /* Safari and Chrome */
+  -o-animation: imageFadeInBackward 1.3s; /* Opera */
+  /* animation-fill-mode: Backwards; */
+  overflow-x: hidden !important;
+}
+
+.prevModalImageBackward {
+  opacity: 1;
+  margin: 0;
+  position: absolute;
+  max-width: 90vw;
+  max-height: 90vw;
+  transform: translate(-50%, -50%);
+
+  animation: imageFadeOutBackward 1.3s;
+  animation-name: imageFadeOutBackward;
+  -moz-animation: imageFadeOutBackward 1.3s; /* Firefox */
+  -webkit-animation: imageFadeOutBackward 1.3s; /* Safari and Chrome */
+  -o-animation: imageFadeOutBackward 1.3s; /* Opera */
+  animation-fill-mode: forwards;
+}
+
+@keyframes imageFadeInBackward {
+  from {
+    transform: translate(-170%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes imageFadeOutBackward {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  to {
+    opacity: 0;
+    transform: translate(200%, -50%);
   }
 }
 

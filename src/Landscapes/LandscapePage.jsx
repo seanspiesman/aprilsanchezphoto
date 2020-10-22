@@ -65,7 +65,7 @@ const LandscapePage = () => {
   const [modalImage, setImage] = useState();
   const [prevImage, setPrevImage] = useState();
   const [modalOpen, openModal] = useState(false);
-  // const [index, updateIndex] = useState();
+  const [buttonDirection, changeDirection] = useState(true);
 
   const columnOne = [];
   const columnTwo = [];
@@ -82,9 +82,9 @@ const LandscapePage = () => {
     }
   }
 
-  // const handleChange = (e) => {
-  //   console.log(e);
-  // };
+  const handleChange = (e) => {
+    console.log(e);
+  };
 
   const goToPrevImage = (modalImage) => {
     const imageIndex = images.indexOf(modalImage);
@@ -127,17 +127,28 @@ const LandscapePage = () => {
                 <img
                   src={modalImage}
                   key={modalImage}
-                  className={styles.modalImage}
+                  className={
+                    buttonDirection
+                      ? styles.modalImageForward
+                      : styles.modalImageBackward
+                  }
                 />
                 <img
                   src={prevImage}
                   key={prevImage}
-                  className={styles.prevModalImage}
+                  className={
+                    buttonDirection
+                      ? styles.prevModalImageForward
+                      : styles.prevModalImageBackward
+                  }
                 />
               </div>
               <div
                 className={styles.leftArrow}
-                onClick={() => goToPrevImage(modalImage)}
+                onClick={() => {
+                  changeDirection(false);
+                  goToPrevImage(modalImage);
+                }}
               >
                 <svg
                   width="3em"
@@ -157,6 +168,7 @@ const LandscapePage = () => {
                 className={styles.rightArrow}
                 onClick={(e) => {
                   goToNextImage(modalImage);
+                  changeDirection(true);
                 }}
               >
                 <svg
@@ -177,8 +189,7 @@ const LandscapePage = () => {
           </>
         )}
         <Sidebar />
-        {/* {columnArr.map((columnItem, index) => {
-          return ( */}
+
         <div className={styles.column}>
           {columnOne.map((image, index) => {
             return (
@@ -217,7 +228,6 @@ const LandscapePage = () => {
             );
           })}
         </div>
-        {/* ); })} */}
       </div>
     </div>
   );
