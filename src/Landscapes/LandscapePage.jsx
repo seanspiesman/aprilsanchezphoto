@@ -65,7 +65,7 @@ const LandscapePage = () => {
   const [modalImage, setImage] = useState();
   const [prevImage, setPrevImage] = useState();
   const [modalOpen, openModal] = useState(false);
-  const [index, updateIndex] = useState();
+  // const [index, updateIndex] = useState();
 
   const columnOne = [];
   const columnTwo = [];
@@ -82,9 +82,9 @@ const LandscapePage = () => {
     }
   }
 
-  const handleChange = (e) => {
-    console.log(e);
-  };
+  // const handleChange = (e) => {
+  //   console.log(e);
+  // };
 
   const goToPrevImage = (modalImage) => {
     const imageIndex = images.indexOf(modalImage);
@@ -167,7 +167,6 @@ const LandscapePage = () => {
               </div>
             </>
           )}
-          }
           <Sidebar />
           {/* {columnArr.map((columnItem, index) => {
           return ( */}
