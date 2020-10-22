@@ -18,6 +18,7 @@
   font-family: monospace;
   color: black;
   text-shadow: 0px 0px 1px white;
+  z-index: 10;
   animation-name: textload;
   animation-duration: 5s;
   animation-fill-mode: forwards;
@@ -50,27 +51,31 @@
 }
 
 .fadeIn {
-  animation: fadein 4s;
-  -moz-animation: fadein 4s; /* Firefox */
-  -webkit-animation: fadein 4s; /* Safari and Chrome */
-  -o-animation: fadein 4s;
+  animation: fadein 3s;
+  -moz-animation: fadein 3s; /* Firefox */
+  -webkit-animation: fadein 3s; /* Safari and Chrome */
+  -o-animation: fadein 3s;
   top: 0;
   background-size: cover;
   background-position: 85% 50%;
   background-repeat: no-repeat;
   animation-name: animation;
-  animation-duration: 5s;
+  animation-duration: 3s;
   animation-fill-mode: forwards;
 }
 
 @keyframes animation {
   from {
     background-image: url("https://images.unsplash.com/photo-1508218859540-d9db198d38fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80");
-    opacity: 0;
+    opacity: 0.3;
+    z-index: -5;
+    transform: scale(1);
   }
   to {
-    opacity: 1;
+    opacity: 0.9;
     background-image: url("https://images.unsplash.com/photo-1508218859540-d9db198d38fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80");
+    z-index: -5;
+    transform: scale(1.4);
   }
 }
 
@@ -79,7 +84,7 @@
   top: 0;
   background-size: auto;
   animation-name: blackFade;
-  animation-duration: 5s;
+  animation-duration: 7s;
   animation-fill-mode: forwards;
 }
 
@@ -87,9 +92,11 @@
   from {
     background-color: black;
     opacity: 1;
+    z-index: -10;
   }
   to {
     opacity: 0;
+    z-index: -10;
     background-color: rgb(255, 255, 255);
   }
 }
