@@ -65,7 +65,7 @@ const LandscapePage = () => {
   const [modalImage, setImage] = useState();
   const [prevImage, setPrevImage] = useState();
   const [modalOpen, openModal] = useState(false);
-  const [buttonDirection, changeDirection] = useState(true);
+  const [buttonDirection, changeDirection] = useState();
 
   const columnOne = [];
   const columnTwo = [];
@@ -107,6 +107,21 @@ const LandscapePage = () => {
     }
   };
 
+  let imageOneClass, imageTwoClass;
+  const classConditions = () => {
+    if (!modalOpen && buttonDirection === "none") {
+      imageOneClass = styles.modalImageFade;
+      imageTwoClass = styles.modalImageFade;
+    } else if (buttonDirection === "forward" && modalOpen) {
+      imageOneClass = styles.modalImageForward;
+      imageTwoClass = styles.prevModalImageForward;
+    } else if (buttonDirection === "backward" && modalOpen) {
+      imageOneClass = styles.modalImageBackward;
+      imageTwoClass = styles.prevModalImageBackward;
+    }
+  };
+  classConditions();
+
   return (
     <div className={styles.fadeIn}>
       <div className={styles.flexContainer}>
@@ -122,6 +137,7 @@ const LandscapePage = () => {
                 ) {
                   openModal(false);
                   setPrevImage(undefined);
+                  changeDirection("none");
                 }
               }}
             >
@@ -129,26 +145,18 @@ const LandscapePage = () => {
                 <img
                   src={modalImage}
                   key={modalImage}
-                  className={
-                    buttonDirection
-                      ? styles.modalImageForward
-                      : styles.modalImageBackward
-                  }
+                  className={imageOneClass}
                 />
                 <img
                   src={prevImage}
                   key={prevImage}
-                  className={
-                    buttonDirection
-                      ? styles.prevModalImageForward
-                      : styles.prevModalImageBackward
-                  }
+                  className={imageTwoClass}
                 />
               </div>
               <div
                 className={styles.leftArrow}
                 onClick={() => {
-                  changeDirection(false);
+                  changeDirection("backward");
                   goToPrevImage(modalImage);
                 }}
               >
@@ -170,7 +178,7 @@ const LandscapePage = () => {
                 className={styles.rightArrow}
                 onClick={(e) => {
                   goToNextImage(modalImage);
-                  changeDirection(true);
+                  changeDirection("forward");
                 }}
               >
                 <svg

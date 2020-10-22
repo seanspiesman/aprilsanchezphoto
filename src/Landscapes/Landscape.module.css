@@ -157,6 +157,14 @@
   z-index: 100 !important;
 }
 
+.modalImageFade {
+  margin: 0;
+  position: absolute;
+  max-width: 90vw;
+  max-height: 90vw;
+  transform: translate(-50%, -50%);
+}
+
 .modalImageForward {
   margin: 0;
   /* opacity: 0.2; */
@@ -261,7 +269,7 @@
   }
   to {
     opacity: 0;
-    transform: translate(200%, -50%);
+    transform: translate(100%, -50%);
   }
 }
 
