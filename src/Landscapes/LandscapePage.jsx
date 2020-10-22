@@ -65,6 +65,7 @@ const LandscapePage = () => {
   const [modalImage, setImage] = useState();
   const [prevImage, setPrevImage] = useState();
   const [modalOpen, openModal] = useState(false);
+  const [index, updateIndex] = useState();
 
   const columnOne = [];
   const columnTwo = [];
@@ -80,6 +81,10 @@ const LandscapePage = () => {
       j = 0;
     }
   }
+
+  const handleChange = (e) => {
+    console.log(e);
+  };
 
   const goToPrevImage = (modalImage) => {
     const imageIndex = images.indexOf(modalImage);
@@ -120,52 +125,44 @@ const LandscapePage = () => {
                 }}
               >
                 <div className={styles.imageModalContainer}>
-                  <div
-                    className={styles.leftArrow}
-                    onClick={() => goToPrevImage(modalImage)}
+                  <img src={modalImage} className={styles.modalImage} />
+                  <img src={prevImage} className={styles.prevModalImage} />
+                </div>
+                <div
+                  className={styles.leftArrow}
+                  onClick={() => goToPrevImage(modalImage)}
+                >
+                  <svg
+                    width="3em"
+                    height="3em"
+                    viewBox="0 0 16 16"
+                    className="bi bi-arrow-left"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <svg
-                      width="3em"
-                      height="3em"
-                      viewBox="0 0 16 16"
-                      className="bi bi-arrow-left"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
-                      />
-                    </svg>{" "}
-                  </div>
-                  <div
-                    className={styles.rightArrow}
-                    onClick={() => goToNextImage(modalImage)}
+                    <path
+                      fillRule="evenodd"
+                      d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+                    />
+                  </svg>{" "}
+                </div>
+                <div
+                  className={styles.rightArrow}
+                  onClick={() => goToNextImage(modalImage)}
+                >
+                  <svg
+                    width="3em"
+                    height="3em"
+                    viewBox="0 0 16 16"
+                    className="bi bi-arrow-right"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <svg
-                      width="3em"
-                      height="3em"
-                      viewBox="0 0 16 16"
-                      className="bi bi-arrow-right"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                      />
-                    </svg>
-                  </div>
-                  <img
-                    value="image"
-                    src={modalImage}
-                    className={styles.modalImage}
-                  />
-                  {/* <img
-                    value="image"
-                    src={modalImage}
-                    className={styles.modalImage}
-                  /> */}
+                    <path
+                      fillRule="evenodd"
+                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                    />
+                  </svg>
                 </div>
               </div>
             </>
@@ -178,8 +175,8 @@ const LandscapePage = () => {
             {columnOne.map((image, index) => {
               return (
                 <Fragment key={index}>
-                  <a href="lightbox" data-slide-to={images.indexOf(image)} />
                   <img
+                    value={image}
                     onClick={() => {
                       setImage(image);
                       openModal(true);
@@ -197,8 +194,8 @@ const LandscapePage = () => {
             {columnTwo.map((image, index) => {
               return (
                 <Fragment key={index}>
-                  <a href="lightbox" data-slide-to={images.indexOf(image)} />
                   <img
+                    value={image}
                     onClick={() => {
                       setImage(image);
                       openModal(true);

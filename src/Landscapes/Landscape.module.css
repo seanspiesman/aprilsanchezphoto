@@ -122,17 +122,17 @@
 
 .modalBase {
   position: absolute;
-  background-color: rgb(0, 0, 0, 0.9);
+  background-color: rgb(0, 0, 0, 0.95);
   height: 100vh;
   width: 100vw;
   z-index: 1;
   top: 0;
-  /* overflow-y: scroll !important; */
+  overflow: hidden !important;
   animation-duration: 1s;
-  animation-name: fadeIn;
+  animation-name: modalBaseFadeIn;
 }
 
-@keyframes fadeIn {
+@keyframes modalBaseFadeIn {
   from {
     z-index: 100;
     opacity: 0;
@@ -158,36 +158,68 @@
 }
 
 .modalImage {
-  z-index: 100;
-  /* max-height: 100%; */
+  margin: 0;
+  /* opacity: 0.2; */
+  position: absolute;
+  max-width: 90vw;
+  max-height: 90vw;
+  transform: translate(-50%, -50%);
+
+  animation: imageFadeIn 2s;
+  -moz-animation: imageFadeIn 2s; /* Firefox */
+  -webkit-animation: imageFadeIn 2s; /* Safari and Chrome */
+  -o-animation: imageFadeIn 2s; /* Opera */
+  /* animation-fill-mode: forwards; */
+  overflow-x: hidden !important;
+}
+
+.prevModalImage {
+  opacity: 1;
+  margin: 0;
+  position: absolute;
+  max-width: 90vw;
+  max-height: 90vw;
+  transform: translate(-50%, -50%);
+
+  animation: imageFadeOut 3s;
+  animation-name: imageFadeOut;
+  -moz-animation: imageFadeOut 3s; /* Firefox */
+  -webkit-animation: imageFadeOut 3s; /* Safari and Chrome */
+  -o-animation: imageFadeOut 3s; /* Opera */
+  animation-fill-mode: forwards;
+}
+
+@keyframes imageFadeIn {
+  from {
+    transform: translate(100%, -50%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes imageFadeOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-200%, -50%);
+  }
 }
 
 .leftArrow {
+  position: absolute;
   background-color: rgb(225, 225, 225, 0.2);
   border-radius: 5px;
-  position: absolute;
   top: 50%;
+  left: 10%;
   -ms-transform: translate(0%, -50%);
   transform: translate(0%, -50%);
-  left: 10px;
   z-index: 500;
-}
-
-.leftArrow:hover {
-  cursor: pointer;
-  animation: fadein 1s;
-  -moz-animation: fadein 1s; /* Firefox */
-  -webkit-animation: fadein 1s; /* Safari and Chrome */
-  -o-animation: fadein 1s; /* Opera */
-}
-
-@keyframes fadein {
-  from {
-    background-color: rgb(225, 225, 225, 0.2);
-  }
-  to {
-    background-color: rgba(141, 141, 141, 0.5);
-  }
 }
 
 .rightArrow {
@@ -197,23 +229,35 @@
   top: 50%;
   -ms-transform: translate(0%, -50%);
   transform: translate(0%, -50%);
-  right: 10px;
+  right: 10%;
   z-index: 500;
+}
+
+.leftArrow:hover {
+  cursor: pointer;
+  background-color: rgb(225, 225, 225, 0.2);
+
+  animation: buttonFadeIn 1s;
+  -moz-animation: buttonFadeIn 1s; /* Firefox */
+  -webkit-animation: buttonFadeIn 1s; /* Safari and Chrome */
+  -o-animation: buttonFadeIn 1s; /* Opera */
+  animation-fill-mode: forwards;
 }
 
 .rightArrow:hover {
   cursor: pointer;
-  animation: fadein 1s;
-  -moz-animation: fadein 1s; /* Firefox */
-  -webkit-animation: fadein 1s; /* Safari and Chrome */
-  -o-animation: fadein 1s; /* Opera */
+  animation: buttonFadeIn 1s;
+  -moz-animation: buttonFadeIn 1s; /* Firefox */
+  -webkit-animation: buttonFadeIn 1s; /* Safari and Chrome */
+  -o-animation: buttonFadeIn 1s; /* Opera */
+  animation-fill-mode: forwards;
 }
 
-@keyframes fadein {
+@keyframes buttonFadeIn {
   from {
     background-color: rgb(225, 225, 225, 0.2);
   }
   to {
-    background-color: rgba(141, 141, 141, 0.5);
+    background-color: rgba(141, 141, 141, 0.8);
   }
 }
