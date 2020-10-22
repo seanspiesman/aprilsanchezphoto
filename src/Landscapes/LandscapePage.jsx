@@ -119,8 +119,10 @@ const LandscapePage = () => {
                   e.target.nodeName !== "IMG" &&
                   e.target.nodeName !== "svg" &&
                   e.target.nodeName !== "path"
-                )
+                ) {
                   openModal(false);
+                  setPrevImage(undefined);
+                }
               }}
             >
               <div className={styles.imageModalContainer}>
