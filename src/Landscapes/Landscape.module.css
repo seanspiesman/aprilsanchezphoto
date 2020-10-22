@@ -165,10 +165,10 @@
   max-height: 90vw;
   transform: translate(-50%, -50%);
 
-  animation: imageFadeIn 2s;
-  -moz-animation: imageFadeIn 2s; /* Firefox */
-  -webkit-animation: imageFadeIn 2s; /* Safari and Chrome */
-  -o-animation: imageFadeIn 2s; /* Opera */
+  animation: imageFadeIn 1.7s;
+  -moz-animation: imageFadeIn 1.7s; /* Firefox */
+  -webkit-animation: imageFadeIn 1.7s; /* Safari and Chrome */
+  -o-animation: imageFadeIn 1.7s; /* Opera */
   /* animation-fill-mode: forwards; */
   overflow-x: hidden !important;
 }
@@ -181,11 +181,11 @@
   max-height: 90vw;
   transform: translate(-50%, -50%);
 
-  animation: imageFadeOut 3s;
+  animation: imageFadeOut 1.7s;
   animation-name: imageFadeOut;
-  -moz-animation: imageFadeOut 3s; /* Firefox */
-  -webkit-animation: imageFadeOut 3s; /* Safari and Chrome */
-  -o-animation: imageFadeOut 3s; /* Opera */
+  -moz-animation: imageFadeOut 1.7s; /* Firefox */
+  -webkit-animation: imageFadeOut 1.7s; /* Safari and Chrome */
+  -o-animation: imageFadeOut 1.7s; /* Opera */
   animation-fill-mode: forwards;
 }
 
