@@ -66,14 +66,16 @@ const images = [
 const LandscapePage = () => {
   const columnOne = [];
   const columnTwo = [];
-  const columnThree = [];
+  const columnArr = [columnOne, columnTwo];
 
+  let j = 0;
   for (let i = 0; i < images.length; i++) {
-    if (i === 0) columnOne.push(images[i]);
-    else if ((i + 1) % 3 === 0) columnThree.push(images[i]);
-    else if ((i + 1) % 2 === 0) columnTwo.push(images[i]);
-    else {
+    if (j === 0) {
       columnOne.push(images[i]);
+      j++;
+    } else if (j === 1) {
+      columnTwo.push(images[i]);
+      j = 0;
     }
   }
 
@@ -82,61 +84,70 @@ const LandscapePage = () => {
   };
 
   return (
-    <div style={{ marginTop: "80px" }}>
-      <Row>
-        <Sidebar />
-        <Col className="col-md-9 .gallery">
-          <Row>
-            <Col
-              data-toggle="modal"
-              data-target="#modal"
-              className="col-4"
-              style={{ padding: "2px" }}
-            >
-              {columnOne.map((image, index) => {
-                return (
-                  <Fragment key={index}>
-                    <a href="lightbox" data-slide-to={images.indexOf(image)} />
-                    <img
-                      onClick={() => onImageClick(image)}
-                      key={index}
-                      className={styles.images}
-                      alt="image"
-                      src={image}
-                    />
-                  </Fragment>
-                );
-              })}
-            </Col>
-            <Col className="col-4" style={{ padding: "2px" }}>
-              {columnTwo.map((image, index) => {
-                return (
-                  <img
-                    onClick={() => onImageClick(image)}
-                    key={index}
-                    className={styles.images}
-                    alt="image"
-                    src={image}
-                  />
-                );
-              })}
-            </Col>
-            <Col className="col-4" style={{ padding: "2px" }}>
-              {columnThree.map((image, index) => {
-                return (
-                  <img
-                    onClick={() => onImageClick(image)}
-                    key={index}
-                    className={styles.images}
-                    alt="image"
-                    src={image}
-                  />
-                );
-              })}
-            </Col>
-          </Row>
+    <div className={styles.flexContainer}>
+      <Sidebar />
+      {/* {columnArr.map((columnItem, index) => {
+          return ( */}
+      <div className={styles.column}>
+        {columnOne.map((image, index) => {
+          return (
+            <Fragment key={index}>
+              <a href="lightbox" data-slide-to={images.indexOf(image)} />
+              <img
+                onClick={() => onImageClick(image)}
+                key={index}
+                className={styles.images}
+                alt="image"
+                src={image}
+              />
+            </Fragment>
+          );
+        })}
+      </div>
+      <div className={styles.column}>
+        {columnTwo.map((image, index) => {
+          return (
+            <Fragment key={index}>
+              <a href="lightbox" data-slide-to={images.indexOf(image)} />
+              <img
+                onClick={() => onImageClick(image)}
+                key={index}
+                className={styles.images}
+                alt="image"
+                src={image}
+              />
+            </Fragment>
+          );
+        })}
+        {/* ); */}
+        {/* })} */}
+        {/* <Col className="col-lg-4" style={{ padding: "2px" }}>
+          {columnTwo.map((image, index) => {
+            return (
+              <img
+                onClick={() => onImageClick(image)}
+                key={index}
+                className={styles.images}
+                alt="image"
+                src={image}
+              />
+            );
+          })}
         </Col>
-      </Row>
+        <Col className="col-lg-4" style={{ padding: "2px" }}>
+          {columnThree.map((image, index) => {
+            return (
+              <img
+                onClick={() => onImageClick(image)}
+                key={index}
+                className={styles.images}
+                alt="image"
+                src={image}
+              />
+            );
+          })}
+        </Col> */}
+      </div>
     </div>
   );
 };

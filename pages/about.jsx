@@ -7,7 +7,7 @@ const about = () => {
     <div style={{ marginTop: "80px" }}>
       <Row>
         <Sidebar />
-        <Col className="col-md-9">TEXT</Col>
+        <Col className="col-md-12">TEXT</Col>
       </Row>
     </div>
   );

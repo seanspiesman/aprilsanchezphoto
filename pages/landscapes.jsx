@@ -1,12 +1,9 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import LandscapePage from "../src/Landscapes/LandscapePage";
 
 const landscapes = () => {
-  return (
-    <div>
-      <LandscapePage />
-    </div>
-  );
+  return <LandscapePage />;
 };
 
 export default landscapes;

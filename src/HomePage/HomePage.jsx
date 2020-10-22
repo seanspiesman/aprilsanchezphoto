@@ -4,8 +4,8 @@ import styles from "./HomePage.module.css";
 import Link from "next/link";
 
 const path = [
-  ["Albums", "/albums"],
-  ["Blog", "/blog"],
+  ["Portraits", "/portraits"],
+  ["Landscapes", "/landscapes"],
   ["About", "/about"],
   ["Contact", "/contact"],
 ];
@@ -20,10 +20,10 @@ const HomePage = () => {
       <div className={styles.title}>
         <h1>April Judith Photography</h1>
         <Row className="text-center">
-          {path.map((item, index) => (
+          {path.map((page, index) => (
             <Col key={index} className="col-md-3">
-              <Link href={item[1]}>
-                <a className={styles.link}>{item[0]}</a>
+              <Link href={page[1]}>
+                <a className={styles.link}>{page[0]}</a>
               </Link>
             </Col>
           ))}

@@ -1,11 +1,47 @@
 .sidebar {
-  position: absolute;
-  margin-left: 40px;
+  flex: 0 0 175px;
+  width: 175px;
+  margin-left: 30px;
   font-size: 20px;
   font-weight: bold;
   font-family: "Courier New", Courier, monospace;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 30px;
+  align-self: flex-start;
+}
+
+.head {
+  margin-bottom: 30px;
+  font-weight: bolder;
 }
 
 .items {
   margin-top: 10px;
+}
+
+.link {
+  color: black;
+}
+.link:hover {
+  color: black;
+}
+
+@media only screen and (max-width: 600px) {
+  .sidebar {
+    text-align: center;
+    flex: 100%;
+    top: 0px;
+    position: static;
+    margin: 0px;
+    margin-bottom: 20px;
+  }
+  .head {
+    margin-bottom: 0px;
+  }
+  .items {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

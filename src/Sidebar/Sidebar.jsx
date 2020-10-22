@@ -1,28 +1,33 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styles from "./Sidebar.module.css";
-import { Col, Nav } from "react-bootstrap";
+import Link from "next/link";
 
-const content = ["Portraits", "Landscape", "Blog", "About", "Contact"];
-
+const path = [
+  ["Portraits", "/portraits"],
+  ["Landscapes", "/landscapes"],
+  ["About", "/about"],
+  ["Contact", "/contact"],
+];
 const Sidebar = () => {
   return (
     <>
-      <Col className="col-sm-2">
-        <div className={styles.sidebar}>
-          <h3>
-            April
-            <br /> Judith
-          </h3>
-          <br />
-          <div>
-            {content.map((item, index) => (
-              <div className={styles.items} key={index}>
-                {item}
-              </div>
-            ))}
-          </div>
+      {/* <Col className="col-lg-2"> */}
+      <div className={styles.sidebar}>
+        <h3 className={styles.head}>April Judith</h3>
+        <div>
+          {path.map((page, index) => {
+            return (
+              <Fragment key={index}>
+                <Link href={page[1]} className={styles.items} key={index}>
+                  <a className={styles.link}>{page[0]}</a>
+                </Link>
+                <br />
+              </Fragment>
+            );
+          })}
         </div>
-      </Col>
+      </div>
+      {/* </Col> */}
     </>
   );
 };
