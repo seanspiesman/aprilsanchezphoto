@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import { Col, Row } from "react-bootstrap";
+import { image } from "faker";
+import React, { Fragment, useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import styles from "./Landscape.module.css";
 
@@ -19,8 +19,6 @@ const images = [
   "https://cdn.pixabay.com/photo/2018/03/31/06/31/dog-3277416_960_720.jpg",
 
   "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_960_720.jpg",
-
-  "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
 
   "https://images.unsplash.com/photo-1511576661531-b34d7da5d0bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
 
@@ -64,6 +62,10 @@ const images = [
 ];
 
 const LandscapePage = () => {
+  const [modalImage, setImage] = useState();
+  const [prevImage, setPrevImage] = useState();
+  const [modalOpen, openModal] = useState(false);
+
   const columnOne = [];
   const columnTwo = [];
   const columnArr = [columnOne, columnTwo];
@@ -79,51 +81,141 @@ const LandscapePage = () => {
     }
   }
 
-  const onImageClick = (image) => {
-    console.log(images.indexOf(image));
+  const goToPrevImage = (modalImage) => {
+    const imageIndex = images.indexOf(modalImage);
+    if (imageIndex === 0) {
+      setPrevImage(modalImage);
+      setImage(images[images.length - 1]);
+    } else {
+      setPrevImage(modalImage);
+      setImage(images[imageIndex - 1]);
+    }
+  };
+  const goToNextImage = () => {
+    const imageIndex = images.indexOf(modalImage);
+    if (imageIndex === images.length - 1) {
+      setPrevImage(modalImage);
+      setImage(images[0]);
+    } else {
+      setPrevImage(modalImage);
+      setImage(images[imageIndex + 1]);
+    }
   };
 
   return (
-    <div className={styles.fadeIn}>
-      <div className={styles.flexContainer}>
-        <Sidebar />
-        {/* {columnArr.map((columnItem, index) => {
+    <>
+      <div className={styles.fadeIn}>
+        <div className={styles.flexContainer}>
+          {modalOpen && (
+            <>
+              <div
+                className={styles.modalBase}
+                onClick={(e) => {
+                  if (
+                    e.target.nodeName !== "IMG" &&
+                    e.target.nodeName !== "svg" &&
+                    e.target.nodeName !== "path"
+                  )
+                    openModal(false);
+                }}
+              >
+                <div className={styles.imageModalContainer}>
+                  <div
+                    className={styles.leftArrow}
+                    onClick={() => goToPrevImage(modalImage)}
+                  >
+                    <svg
+                      width="3em"
+                      height="3em"
+                      viewBox="0 0 16 16"
+                      className="bi bi-arrow-left"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+                      />
+                    </svg>{" "}
+                  </div>
+                  <div
+                    className={styles.rightArrow}
+                    onClick={() => goToNextImage(modalImage)}
+                  >
+                    <svg
+                      width="3em"
+                      height="3em"
+                      viewBox="0 0 16 16"
+                      className="bi bi-arrow-right"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                      />
+                    </svg>
+                  </div>
+                  <img
+                    value="image"
+                    src={modalImage}
+                    className={styles.modalImage}
+                  />
+                  {/* <img
+                    value="image"
+                    src={modalImage}
+                    className={styles.modalImage}
+                  /> */}
+                </div>
+              </div>
+            </>
+          )}
+          }
+          <Sidebar />
+          {/* {columnArr.map((columnItem, index) => {
           return ( */}
-        <div className={styles.column}>
-          {columnOne.map((image, index) => {
-            return (
-              <Fragment key={index}>
-                <a href="lightbox" data-slide-to={images.indexOf(image)} />
-                <img
-                  onClick={() => onImageClick(image)}
-                  key={index}
-                  className={styles.images}
-                  alt="image"
-                  src={image}
-                />
-              </Fragment>
-            );
-          })}
+          <div className={styles.column}>
+            {columnOne.map((image, index) => {
+              return (
+                <Fragment key={index}>
+                  <a href="lightbox" data-slide-to={images.indexOf(image)} />
+                  <img
+                    onClick={() => {
+                      setImage(image);
+                      openModal(true);
+                    }}
+                    key={index}
+                    className={styles.images}
+                    alt="image"
+                    src={image}
+                  />
+                </Fragment>
+              );
+            })}
+          </div>
+          <div className={styles.columnTwo}>
+            {columnTwo.map((image, index) => {
+              return (
+                <Fragment key={index}>
+                  <a href="lightbox" data-slide-to={images.indexOf(image)} />
+                  <img
+                    onClick={() => {
+                      setImage(image);
+                      openModal(true);
+                    }}
+                    key={index}
+                    className={styles.images}
+                    alt="image"
+                    src={image}
+                  />
+                </Fragment>
+              );
+            })}
+          </div>
+          {/* ); })} */}
         </div>
-        <div className={styles.columnTwo}>
-          {columnTwo.map((image, index) => {
-            return (
-              <Fragment key={index}>
-                <a href="lightbox" data-slide-to={images.indexOf(image)} />
-                <img
-                  onClick={() => onImageClick(image)}
-                  key={index}
-                  className={styles.images}
-                  alt="image"
-                  src={image}
-                />
-              </Fragment>
-            );
-          })}
-        </div>
-        {/* ); })} */}
       </div>
-    </div>
+    </>
   );
 };
 
