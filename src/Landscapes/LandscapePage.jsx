@@ -84,69 +84,44 @@ const LandscapePage = () => {
   };
 
   return (
-    <div className={styles.flexContainer}>
-      <Sidebar />
-      {/* {columnArr.map((columnItem, index) => {
+    <div className={styles.fadeIn}>
+      <div className={styles.flexContainer}>
+        <Sidebar />
+        {/* {columnArr.map((columnItem, index) => {
           return ( */}
-      <div className={styles.column}>
-        {columnOne.map((image, index) => {
-          return (
-            <Fragment key={index}>
-              <a href="lightbox" data-slide-to={images.indexOf(image)} />
-              <img
-                onClick={() => onImageClick(image)}
-                key={index}
-                className={styles.images}
-                alt="image"
-                src={image}
-              />
-            </Fragment>
-          );
-        })}
-      </div>
-      <div className={styles.column}>
-        {columnTwo.map((image, index) => {
-          return (
-            <Fragment key={index}>
-              <a href="lightbox" data-slide-to={images.indexOf(image)} />
-              <img
-                onClick={() => onImageClick(image)}
-                key={index}
-                className={styles.images}
-                alt="image"
-                src={image}
-              />
-            </Fragment>
-          );
-        })}
-        {/* ); */}
-        {/* })} */}
-        {/* <Col className="col-lg-4" style={{ padding: "2px" }}>
+        <div className={styles.column}>
+          {columnOne.map((image, index) => {
+            return (
+              <Fragment key={index}>
+                <a href="lightbox" data-slide-to={images.indexOf(image)} />
+                <img
+                  onClick={() => onImageClick(image)}
+                  key={index}
+                  className={styles.images}
+                  alt="image"
+                  src={image}
+                />
+              </Fragment>
+            );
+          })}
+        </div>
+        <div className={styles.columnTwo}>
           {columnTwo.map((image, index) => {
             return (
-              <img
-                onClick={() => onImageClick(image)}
-                key={index}
-                className={styles.images}
-                alt="image"
-                src={image}
-              />
+              <Fragment key={index}>
+                <a href="lightbox" data-slide-to={images.indexOf(image)} />
+                <img
+                  onClick={() => onImageClick(image)}
+                  key={index}
+                  className={styles.images}
+                  alt="image"
+                  src={image}
+                />
+              </Fragment>
             );
           })}
-        </Col>
-        <Col className="col-lg-4" style={{ padding: "2px" }}>
-          {columnThree.map((image, index) => {
-            return (
-              <img
-                onClick={() => onImageClick(image)}
-                key={index}
-                className={styles.images}
-                alt="image"
-                src={image}
-              />
-            );
-          })}
-        </Col> */}
+        </div>
+        {/* ); })} */}
       </div>
     </div>
   );

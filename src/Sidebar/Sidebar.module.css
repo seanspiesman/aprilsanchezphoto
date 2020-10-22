@@ -14,6 +14,13 @@
 .head {
   margin-bottom: 30px;
   font-weight: bolder;
+  color: black;
+  font-size: 35px;
+  line-height: 1;
+}
+.head:hover {
+  cursor: pointer;
+  color: black;
 }
 
 .items {

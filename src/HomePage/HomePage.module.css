@@ -1,27 +1,95 @@
 .backgroundimg {
   position: absolute;
   color: gray;
-  min-height: 100%;
-  min-width: 100%;
-  left: 0;
-  /* left: 50%; 
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%); */
-  z-index: -1000;
+  /* height: 100vh;
+  width: 100vw; */
+  /* background-image: url("https://images.unsplash.com/photo-1508218859540-d9db198d38fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"); */
+  /* background-size: cover; */
+  /* background-position: 85% 50%;
+  background-repeat: no-repeat; */
+  z-index: 0;
+  overflow: hidden;
 }
 
 .title {
   position: absolute;
   top: 30%;
   left: 10%;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: bold;
+  font-family: monospace;
   color: black;
+  text-shadow: 0px 0px 1px white;
+  animation-name: textload;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes textload {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .link {
+  word-wrap: break-word;
   color: black;
+  font-weight: 1000;
+  text-shadow: 0px 0px 1px white;
 }
 .link:hover {
   color: black;
+}
+
+@media only screen and (max-width: 663px) {
+  .header {
+    font-size: 25px;
+    word-wrap: break-word;
+  }
+}
+
+.fadeIn {
+  animation: fadein 4s;
+  -moz-animation: fadein 4s; /* Firefox */
+  -webkit-animation: fadein 4s; /* Safari and Chrome */
+  -o-animation: fadein 4s;
+  top: 0;
+  background-size: cover;
+  background-position: 85% 50%;
+  background-repeat: no-repeat;
+  animation-name: animation;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animation {
+  from {
+    background-image: url("https://images.unsplash.com/photo-1508218859540-d9db198d38fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80");
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    background-image: url("https://images.unsplash.com/photo-1508218859540-d9db198d38fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80");
+  }
+}
+
+.blackFades {
+  position: absolute;
+  top: 0;
+  background-size: auto;
+  animation-name: blackFade;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes blackFade {
+  from {
+    background-color: black;
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    background-color: rgb(255, 255, 255);
+  }
 }

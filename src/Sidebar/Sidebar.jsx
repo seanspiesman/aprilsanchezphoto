@@ -11,9 +11,12 @@ const path = [
 const Sidebar = () => {
   return (
     <>
-      {/* <Col className="col-lg-2"> */}
       <div className={styles.sidebar}>
-        <h3 className={styles.head}>April Judith</h3>
+        <div className={styles.head}>
+          <a className={styles.head} href={"/"}>
+            April Judith
+          </a>
+        </div>
         <div>
           {path.map((page, index) => {
             return (
@@ -27,7 +30,6 @@ const Sidebar = () => {
           })}
         </div>
       </div>
-      {/* </Col> */}
     </>
   );
 };

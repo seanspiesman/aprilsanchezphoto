@@ -1,7 +1,7 @@
 .flexContainer {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 80px;
+  padding-top: 80px;
 }
 
 .column {
@@ -9,19 +9,35 @@
   padding: 5px;
 }
 
-.images {
-  width: 100%;
-  vertical-align: middle;
+.columnTwo {
+  flex: 25%;
   padding: 5px;
 }
 
+.images {
+  width: 100%;
+  vertical-align: middle;
+  padding: 5px 0px 0px 0px;
+}
+
 @media only screen and (max-width: 730px) {
+  .flexContainer {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 0px;
+  }
   .column {
     flex: calc(90% - 175px);
     padding: 0px;
   }
+
+  .columnTwo {
+    margin-left: 205px;
+    padding: 0px;
+  }
+
   .images {
-    padding: 5px 0px 5px 0px;
+    padding: 5px 10px 5px 0px;
   }
 }
 
@@ -29,16 +45,71 @@
   .flexContainer {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 0px;
+    padding-top: 0px;
   }
   .column {
     flex: 100%;
     padding: 0px;
   }
 
+  .columnTwo {
+    flex: 100%;
+    padding: 0px;
+    margin-left: 0px;
+  }
+
   .images {
     width: 100%;
     vertical-align: middle;
     padding: 5px 0px 5px 0px;
+  }
+}
+
+.fadeIn {
+  animation: fadein 1s;
+  -moz-animation: fadein 1s; /* Firefox */
+  -webkit-animation: fadein 1s; /* Safari and Chrome */
+  -o-animation: fadein 1s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: rotateX(-30deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

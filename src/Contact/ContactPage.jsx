@@ -6,7 +6,6 @@ const ContactPage = () => {
   return (
     <div className={styles.flexContainer}>
       <Sidebar />
-      <div className={""}>Contact</div>
     </div>
   );
 };

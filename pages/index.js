@@ -3,11 +3,11 @@ import HomePage from "../src/HomePage/HomePage";
 
 export default function Home() {
   return (
-    <div className="container">
+    <div>
       <Head>
         <title>April Judith Photography</title>
       </Head>
-      <main>
+      <main style={{ overflow: "hidden" }}>
         <HomePage />
       </main>
     </div>
