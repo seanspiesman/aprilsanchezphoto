@@ -144,6 +144,38 @@
   }
 }
 
+.modalHidden {
+  display: none;
+}
+
+.modalBaseFadeOut {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  background-color: rgb(0, 0, 0, 0.95);
+  overflow: hidden !important;
+  animation-duration: 0.4s;
+  animation-name: modalBaseFadeOut;
+  /* animation-fill-mode: forwards; */
+}
+
+@keyframes modalBaseFadeOut {
+  0% {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(0, 0, 0, 0.95);
+    overflow: auto !important;
+    opacity: 1;
+  }
+  100% {
+    height: 100vh;
+    width: 100vw;
+    opacity: 0;
+    overflow: scroll;
+    display: none;
+  }
+}
+
 .imageModalContainer {
   margin: 0;
   position: absolute;
@@ -157,11 +189,12 @@
   z-index: 100 !important;
 }
 
-.modalImageFade {
+.modalImageFadeIn {
   margin: 0;
   position: absolute;
   max-width: 90vw;
   max-height: 90vw;
+  min-width: 80vw;
   transform: translate(-50%, -50%);
 }
 
@@ -173,10 +206,10 @@
   max-height: 90vw;
   transform: translate(-50%, -50%);
 
-  animation: imageFadeInForward 1.3s;
-  -moz-animation: imageFadeInForward 1.3s; /* Firefox */
-  -webkit-animation: imageFadeInForward 1.3s; /* Safari and Chrome */
-  -o-animation: imageFadeInForward 1.3s; /* Opera */
+  animation: imageFadeInForward 1.1s;
+  -moz-animation: imageFadeInForward 1.1s; /* Firefox */
+  -webkit-animation: imageFadeInForward 1.1s; /* Safari and Chrome */
+  -o-animation: imageFadeInForward 1.1s; /* Opera */
   /* animation-fill-mode: forwards; */
   overflow-x: hidden !important;
 }
@@ -189,11 +222,11 @@
   max-height: 90vw;
   transform: translate(-50%, -50%);
 
-  animation: imageFadeOutForward 1.3s;
+  animation: imageFadeOutForward 1.1s;
   animation-name: imageFadeOutForward;
-  -moz-animation: imageFadeOutForward 1.3s; /* Firefox */
-  -webkit-animation: imageFadeOutForward 1.3s; /* Safari and Chrome */
-  -o-animation: imageFadeOutForward 1.3s; /* Opera */
+  -moz-animation: imageFadeOutForward 1.1s; /* Firefox */
+  -webkit-animation: imageFadeOutForward 1.1s; /* Safari and Chrome */
+  -o-animation: imageFadeOutForward 1.1s; /* Opera */
   animation-fill-mode: forwards;
 }
 
@@ -227,10 +260,10 @@
   max-height: 90vw;
   transform: translate(-50%, -50%);
 
-  animation: imageFadeInBackward 1.3s;
-  -moz-animation: imageFadeInBackward 1.3s; /* Firefox */
-  -webkit-animation: imageFadeInBackward 1.3s; /* Safari and Chrome */
-  -o-animation: imageFadeInBackward 1.3s; /* Opera */
+  animation: imageFadeInBackward 1.1s;
+  -moz-animation: imageFadeInBackward 1.1s; /* Firefox */
+  -webkit-animation: imageFadeInBackward 1.1s; /* Safari and Chrome */
+  -o-animation: imageFadeInBackward 1.1s; /* Opera */
   /* animation-fill-mode: Backwards; */
   overflow-x: hidden !important;
 }
@@ -243,11 +276,11 @@
   max-height: 90vw;
   transform: translate(-50%, -50%);
 
-  animation: imageFadeOutBackward 1.3s;
+  animation: imageFadeOutBackward 1.1s;
   animation-name: imageFadeOutBackward;
-  -moz-animation: imageFadeOutBackward 1.3s; /* Firefox */
-  -webkit-animation: imageFadeOutBackward 1.3s; /* Safari and Chrome */
-  -o-animation: imageFadeOutBackward 1.3s; /* Opera */
+  -moz-animation: imageFadeOutBackward 1.1s; /* Firefox */
+  -webkit-animation: imageFadeOutBackward 1.1s; /* Safari and Chrome */
+  -o-animation: imageFadeOutBackward 1.1s; /* Opera */
   animation-fill-mode: forwards;
 }
 

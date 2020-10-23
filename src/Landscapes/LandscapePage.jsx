@@ -1,4 +1,3 @@
-import { image } from "faker";
 import React, { Fragment, useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import styles from "./Landscape.module.css";
@@ -82,10 +81,6 @@ const LandscapePage = () => {
     }
   }
 
-  const handleChange = (e) => {
-    console.log(e);
-  };
-
   const goToPrevImage = (modalImage) => {
     const imageIndex = images.indexOf(modalImage);
     if (imageIndex === 0) {
@@ -108,96 +103,83 @@ const LandscapePage = () => {
   };
 
   let imageOneClass, imageTwoClass;
-  const classConditions = () => {
-    if (!modalOpen && buttonDirection === "none") {
-      imageOneClass = styles.modalImageFade;
-      imageTwoClass = styles.modalImageFade;
-    } else if (buttonDirection === "forward" && modalOpen) {
-      imageOneClass = styles.modalImageForward;
-      imageTwoClass = styles.prevModalImageForward;
-    } else if (buttonDirection === "backward" && modalOpen) {
-      imageOneClass = styles.modalImageBackward;
-      imageTwoClass = styles.prevModalImageBackward;
-    }
-  };
-  classConditions();
+  if (buttonDirection === "none") {
+    imageOneClass = styles.modalImageFadeIn;
+    imageTwoClass = styles.modalImageFadeIn;
+  } else if (buttonDirection === "forward" && modalOpen) {
+    imageOneClass = styles.modalImageForward;
+    imageTwoClass = styles.prevModalImageForward;
+  } else if (buttonDirection === "backward" && modalOpen) {
+    imageOneClass = styles.modalImageBackward;
+    imageTwoClass = styles.prevModalImageBackward;
+  }
 
   return (
     <div className={styles.fadeIn}>
       <div className={styles.flexContainer}>
-        {modalOpen && (
-          <>
-            <div
-              className={styles.modalBase}
-              onClick={(e) => {
-                if (
-                  e.target.nodeName !== "IMG" &&
-                  e.target.nodeName !== "svg" &&
-                  e.target.nodeName !== "path"
-                ) {
-                  openModal(false);
-                  setPrevImage(undefined);
-                  changeDirection("none");
-                }
-              }}
+        <div
+          className={modalOpen ? styles.modalBase : styles.modalBaseFadeOut}
+          key={modalOpen}
+          onClick={(e) => {
+            if (
+              e.target.nodeName !== "IMG" &&
+              e.target.nodeName !== "svg" &&
+              e.target.nodeName !== "path"
+            ) {
+              openModal(false);
+              setPrevImage(undefined);
+              changeDirection("none");
+            }
+          }}
+        >
+          <div className={styles.imageModalContainer}>
+            <img src={modalImage} key={modalImage} className={imageOneClass} />
+            <img src={prevImage} key={prevImage} className={imageTwoClass} />
+          </div>
+          <div
+            className={styles.leftArrow}
+            onClick={() => {
+              changeDirection("backward");
+              goToPrevImage(modalImage);
+            }}
+          >
+            <svg
+              width="3em"
+              height="3em"
+              viewBox="0 0 16 16"
+              className="bi bi-arrow-left"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <div className={styles.imageModalContainer}>
-                <img
-                  src={modalImage}
-                  key={modalImage}
-                  className={imageOneClass}
-                />
-                <img
-                  src={prevImage}
-                  key={prevImage}
-                  className={imageTwoClass}
-                />
-              </div>
-              <div
-                className={styles.leftArrow}
-                onClick={() => {
-                  changeDirection("backward");
-                  goToPrevImage(modalImage);
-                }}
-              >
-                <svg
-                  width="3em"
-                  height="3em"
-                  viewBox="0 0 16 16"
-                  className="bi bi-arrow-left"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
-                  />
-                </svg>{" "}
-              </div>
-              <div
-                className={styles.rightArrow}
-                onClick={(e) => {
-                  goToNextImage(modalImage);
-                  changeDirection("forward");
-                }}
-              >
-                <svg
-                  width="3em"
-                  height="3em"
-                  viewBox="0 0 16 16"
-                  className="bi bi-arrow-right"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                  />
-                </svg>
-              </div>
-            </div>
-          </>
-        )}
+              <path
+                fillRule="evenodd"
+                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+              />
+            </svg>{" "}
+          </div>
+          <div
+            className={styles.rightArrow}
+            onClick={(e) => {
+              goToNextImage(modalImage);
+              changeDirection("forward");
+            }}
+          >
+            <svg
+              width="3em"
+              height="3em"
+              viewBox="0 0 16 16"
+              className="bi bi-arrow-right"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+              />
+            </svg>
+          </div>
+        </div>
+
         <Sidebar />
 
         <div className={styles.column}>
