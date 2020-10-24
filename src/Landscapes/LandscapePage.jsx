@@ -102,6 +102,8 @@ const LandscapePage = () => {
     }
   };
 
+  
+
   let imageOneClass, imageTwoClass;
   if (buttonDirection === "none") {
     imageOneClass = styles.modalImageFadeIn;

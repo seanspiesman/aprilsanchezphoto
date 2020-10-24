@@ -5,7 +5,8 @@
 }
 
 .flexItemRight {
-  flex: 80%;
+  flex: 50%;
+  margin-right: 10%;
 }
 
 @media only screen and (max-width: 600px) {
@@ -13,5 +14,11 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 0px;
+  }
+  .flexItemRight {
+    text-align: center;
+    flex: 60%;
+    margin-right: 10%;
+    margin-left: 10%;
   }
 }

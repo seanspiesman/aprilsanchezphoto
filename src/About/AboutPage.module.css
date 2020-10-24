@@ -1,0 +1,68 @@
+.flexContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  overflow: hidden !important;
+}
+
+.flexItemRight {
+  flex: 50%;
+  margin-right: 10%;
+}
+
+.slideIn {
+  animation: slideIn 2s;
+}
+
+.slideInBottom {
+  animation: slideInBottom 2s;
+}
+
+.aboutImage {
+  max-width: 50%;
+  animation: fadeIn 6s;
+}
+
+@media only screen and (max-width: 600px) {
+  .flexContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0px;
+  }
+  .flexItemRight {
+    text-align: center;
+    flex: 60%;
+    margin-right: 10%;
+    margin-left: 10%;
+  }
+  .aboutImage {
+    max-width: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translate(-100%, -50%);
+  }
+  to {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes slideInBottom {
+  from {
+    transform: translate(50%, 120%);
+  }
+  to {
+    transform: translate(0%, 0%);
+  }
+}

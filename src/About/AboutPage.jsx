@@ -1,14 +1,16 @@
 import React from "react";
-import styles from "./ContactPage.module.css";
+import styles from "./AboutPage.module.css";
 import Sidebar from "../Sidebar/Sidebar";
 
-const ContactPage = () => {
+const AboutPage = () => {
   return (
     <div className={styles.flexContainer}>
-      <Sidebar />
+      <div className={styles.slideInBottom}>
+        <Sidebar />
+      </div>
       <div className={styles.flexItemRight}>
-        <h4> Contact</h4>
-        <p>
+        <h3 className={styles.slideIn}> Behind the Lense</h3>
+        <p className={styles.slideInBottom}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut morbi
           tincidunt augue interdum velit euismod in pellentesque. Turpis egestas
@@ -18,8 +20,13 @@ const ContactPage = () => {
           nulla. Velit scelerisque in dictum non. Felis bibendum ut tristique et
           egestas. Pretium lectus quam id leo. Diam in arcu cursus euismod quis
           viverra.
-          <br />
-          <br />
+        </p>
+        <img
+          className={styles.aboutImage}
+          src="https://images.unsplash.com/photo-1596213340296-240f81dde687?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+        />
+
+        <p className={styles.slideInBottom}>
           Placerat in egestas erat imperdiet sed. Tincidunt lobortis feugiat
           vivamus at augue. Condimentum vitae sapien pellentesque habitant morbi
           tristique senectus et. Sodales ut eu sem integer. Sapien pellentesque
@@ -40,23 +47,10 @@ const ContactPage = () => {
           sodales ut eu sem. Urna id volutpat lacus laoreet non. Senectus et
           netus et malesuada fames ac turpis egestas. Sit amet purus gravida
           quis blandit turpis. In est ante in nibh mauris.
-          <br />
-          <br />
-          Est lorem ipsum dolor sit amet. Nibh sit amet commodo nulla facilisi
-          nullam vehicula ipsum. Urna nec tincidunt praesent semper feugiat nibh
-          sed pulvinar. Quisque non tellus orci ac auctor augue mauris.
-          Elementum facilisis leo vel fringilla. Mauris pharetra et ultrices
-          neque ornare aenean euismod elementum nisi. Molestie a iaculis at erat
-          pellentesque. Arcu risus quis varius quam quisque id diam vel quam.
-          Enim nulla aliquet porttitor lacus luctus. Amet nulla facilisi morbi
-          tempus iaculis urna id. Urna et pharetra pharetra massa massa
-          ultricies. Donec enim diam vulputate ut pharetra. Odio euismod lacinia
-          at quis risus. Tristique et egestas quis ipsum suspendisse ultrices
-          gravida. Sit amet aliquam id diam maecenas ultricies mi.
         </p>
       </div>
     </div>
   );
 };
 
-export default ContactPage;
+export default AboutPage;
