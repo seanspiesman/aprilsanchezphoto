@@ -61,10 +61,10 @@ const images = [
 ];
 
 const LandscapePage = () => {
-  const [modalImage, setImage] = useState();
+  const [modalImage, setImage] = useState("");
   const [prevImage, setPrevImage] = useState();
   const [modalOpen, openModal] = useState(false);
-  const [buttonDirection, changeDirection] = useState();
+  const [buttonDirection, changeDirection] = useState("none");
 
   const columnOne = [];
   const columnTwo = [];
@@ -102,19 +102,20 @@ const LandscapePage = () => {
     }
   };
 
-  
-
   let imageOneClass, imageTwoClass;
-  if (buttonDirection === "none") {
-    imageOneClass = styles.modalImageFadeIn;
-    imageTwoClass = styles.modalImageFadeIn;
-  } else if (buttonDirection === "forward" && modalOpen) {
-    imageOneClass = styles.modalImageForward;
-    imageTwoClass = styles.prevModalImageForward;
-  } else if (buttonDirection === "backward" && modalOpen) {
-    imageOneClass = styles.modalImageBackward;
-    imageTwoClass = styles.prevModalImageBackward;
-  }
+  const modalImageClass = () => {
+    if (buttonDirection === "none") {
+      imageOneClass = styles.modalImageFadeIn;
+      imageTwoClass = styles.modalImageFadeIn;
+    } else if (buttonDirection === "forward" && modalOpen) {
+      imageOneClass = styles.modalImageForward;
+      imageTwoClass = styles.prevModalImageForward;
+    } else if (buttonDirection === "backward" && modalOpen) {
+      imageOneClass = styles.modalImageBackward;
+      imageTwoClass = styles.prevModalImageBackward;
+    }
+  };
+  modalImageClass();
 
   return (
     <div className={styles.fadeIn}>
