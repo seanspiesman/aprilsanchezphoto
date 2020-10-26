@@ -8,10 +8,10 @@ const path = [
   ["About", "/about"],
   ["Contact", "/contact"],
 ];
-const Sidebar = () => {
+const Sidebar = ({ style }) => {
   return (
-    <>
-      <div className={styles.sidebar}>
+    <div className={styles.sidebar}>
+      <div className={style}>
         <div className={styles.head}>
           <a className={styles.head} href={"/"}>
             April Judith
@@ -28,9 +28,21 @@ const Sidebar = () => {
               </Fragment>
             );
           })}
+          <a href="https://www.instagram.com/apriljudithphotography/">
+            <img
+              className={styles.instaLogo}
+              src="https://image.flaticon.com/icons/png/512/87/87390.png"
+            />
+          </a>
+          <a href="https://twitter.com/sanchezaj11?lang=en">
+            <img
+              className={styles.twitterLogo}
+              src="https://image.flaticon.com/icons/png/512/23/23931.png"
+            />
+          </a>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

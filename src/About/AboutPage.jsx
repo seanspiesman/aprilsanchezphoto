@@ -5,9 +5,7 @@ import Sidebar from "../Sidebar/Sidebar";
 const AboutPage = () => {
   return (
     <div className={styles.flexContainer}>
-      <div className={styles.slideInBottom}>
-        <Sidebar />
-      </div>
+      <Sidebar style={styles.slideInBottom} />
       <div className={styles.flexItemRight}>
         <h3 className={styles.slideIn}> Behind the Lense</h3>
         <p className={styles.slideInBottom}>
@@ -36,17 +34,7 @@ const AboutPage = () => {
           tristique risus nec feugiat in fermentum. Pulvinar neque laoreet
           suspendisse interdum consectetur. Duis ultricies lacus sed turpis
           tincidunt. Platea dictumst vestibulum rhoncus est pellentesque elit
-          ullamcorper dignissim cras. Mi quis hendrerit dolor magna eget est.
-          Sit amet nisl suscipit adipiscing bibendum. Vitae purus faucibus
-          ornare suspendisse sed. Arcu felis bibendum ut tristique et egestas
-          quis ipsum. Volutpat diam ut venenatis tellus in metus. Suspendisse in
-          est ante in nibh. Ultrices vitae auctor eu augue ut lectus arcu
-          bibendum at. Blandit volutpat maecenas volutpat blandit. Consectetur
-          lorem donec massa sapien faucibus et molestie. Purus in massa tempor
-          nec feugiat nisl pretium. Curabitur vitae nunc sed velit dignissim
-          sodales ut eu sem. Urna id volutpat lacus laoreet non. Senectus et
-          netus et malesuada fames ac turpis egestas. Sit amet purus gravida
-          quis blandit turpis. In est ante in nibh mauris.
+          ullamcorper dignissim cras.
         </p>
       </div>
     </div>

@@ -103,19 +103,16 @@ const LandscapePage = () => {
   };
 
   let imageOneClass, imageTwoClass;
-  const modalImageClass = () => {
-    if (buttonDirection === "none") {
-      imageOneClass = styles.modalImageFadeIn;
-      imageTwoClass = styles.modalImageFadeIn;
-    } else if (buttonDirection === "forward" && modalOpen) {
-      imageOneClass = styles.modalImageForward;
-      imageTwoClass = styles.prevModalImageForward;
-    } else if (buttonDirection === "backward" && modalOpen) {
-      imageOneClass = styles.modalImageBackward;
-      imageTwoClass = styles.prevModalImageBackward;
-    }
-  };
-  modalImageClass();
+  if (buttonDirection === "none") {
+    imageOneClass = styles.modalImageFadeIn;
+    imageTwoClass = styles.modalImageFadeIn;
+  } else if (buttonDirection === "forward" && modalOpen) {
+    imageOneClass = styles.modalImageForward;
+    imageTwoClass = styles.prevModalImageForward;
+  } else if (buttonDirection === "backward" && modalOpen) {
+    imageOneClass = styles.modalImageBackward;
+    imageTwoClass = styles.prevModalImageBackward;
+  }
 
   return (
     <div className={styles.fadeIn}>
