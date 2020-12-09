@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
-import styles from "./Landscape.module.css";
+import styles from "./Gallery.module.css";
 
 const images = [
   "https://cdn.pixabay.com/photo/2017/01/14/12/59/iceland-1979445_960_720.jpg",
@@ -60,7 +60,7 @@ const images = [
   "https://images.unsplash.com/photo-1413752362258-7af2a667b590?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60",
 ];
 
-const LandscapePage = () => {
+const Gallery = ({ images }) => {
   const [modalImage, setImage] = useState("");
   const [prevImage, setPrevImage] = useState();
   const [modalOpen, openModal] = useState(false);
@@ -225,4 +225,4 @@ const LandscapePage = () => {
   );
 };
 
-export default LandscapePage;
+export default Gallery;

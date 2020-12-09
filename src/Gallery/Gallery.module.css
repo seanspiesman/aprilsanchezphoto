@@ -90,7 +90,7 @@
   /* Firefox */
   from {
     opacity: 0;
-    transform: rotateX(-10deg);
+    transform: rotateX(-30deg);
   }
   to {
     opacity: 1;
@@ -101,7 +101,7 @@
   /* Safari and Chrome */
   from {
     opacity: 0;
-    transform: rotateX(-10deg);
+    transform: rotateX(-30deg);
   }
   to {
     opacity: 1;
